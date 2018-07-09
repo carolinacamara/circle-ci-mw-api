@@ -2,7 +2,7 @@ version: 2
 jobs:
   one:
     docker:
-      - image: carolinacamara/test
+      - image: carolinacamara/test:symfony4-with-composer
     steps:
       - checkout
       - run: echo "A first hello"
