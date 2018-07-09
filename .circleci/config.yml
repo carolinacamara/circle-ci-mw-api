@@ -8,5 +8,4 @@ jobs:
       - checkout
       - run: sudo apt install npm
       - run: npm install --global mocha
-      - run: sudo ln -s /usr/bin/nodejs /usr/bin/node
       - run: sudo npm test
