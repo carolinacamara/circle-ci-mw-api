@@ -1,16 +1,18 @@
 version: 2
 jobs:
   build:
-    dependencies:
-      override:
-      - npm install --save-dev mocha
     docker:
       - image: debian:stretch
     steps:
       - checkout
+      - run: npm install
+      - run: mkdir ~/junit
       - run:
-          name: Greeting
-          command: echo Hello, world.
-      - run:
-          name: Print the Current Time
-          command: date
+          command: mocha test --reporter mocha-junit-reporter
+          environment:
+            MOCHA_FILE: junit/test-results.xml
+          when: always
+      - store_test_results:
+          path: ~/junit
+      - store_artifacts:
+          path: ~/junit    
