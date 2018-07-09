@@ -1,6 +1,9 @@
 version: 2
 jobs:
   build:
+    dependencies:
+      override:
+      - npm install --save-dev mocha
     docker:
       - image: debian:stretch
     steps:
