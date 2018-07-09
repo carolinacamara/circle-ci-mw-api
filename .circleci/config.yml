@@ -6,6 +6,8 @@ jobs:
     steps:
       - checkout
       - run: npm install
+      - run: npm install --global mocha
+      - run: ln -s /usr/bin/nodejs /usr/bin/node
       - run: mkdir ~/junit
       - run:
           command: mocha test --reporter mocha-junit-reporter
