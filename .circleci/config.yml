@@ -2,19 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
+      # specify the version you desire here
+      - image: circleci/node:6.10.3
+
+    working_directory: ~/repo
     steps:
       - checkout
-      - run: apt install npm
-      - run: npm install --global mocha
-      - run: ln -s /usr/bin/nodejs /usr/bin/node
-      - run: mkdir ~/junit
-      - run:
-          command: mocha test --reporter mocha-junit-reporter
-          environment:
-            MOCHA_FILE: junit/test-results.xml
-          when: always
-      - store_test_results:
-          path: ~/junit
-      - store_artifacts:
-          path: ~/junit 
+      - run: npm install
+      - run: npm test
