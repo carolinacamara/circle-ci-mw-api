@@ -5,6 +5,7 @@ jobs:
       - image: debian:stretch
     steps:
       - checkout
+      - run: apt install npm
       - run: npm install
       - run: npm install --global mocha
       - run: ln -s /usr/bin/nodejs /usr/bin/node
