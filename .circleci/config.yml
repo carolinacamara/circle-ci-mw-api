@@ -7,4 +7,4 @@ jobs:
     steps:
       - checkout
       - run: sudo apt install npm
-      - run: npm install --global mocha
+      - run: sudo npm install --global mocha
