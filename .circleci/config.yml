@@ -6,6 +6,7 @@ jobs:
       - image: circleci/node:6.10.3
     steps:
       - checkout
-      - run: apt install npm
+      - run: sudo apt install npm
       - run: npm install --global mocha
+      - run: sudo ln -s /usr/bin/nodejs /usr/bin/node
       - run: sudo npm test
