@@ -8,5 +8,3 @@ jobs:
       - checkout
       - run: sudo apt install npm
       - run: npm install mocha --save-dev
-      - run: mocha test/
-    
